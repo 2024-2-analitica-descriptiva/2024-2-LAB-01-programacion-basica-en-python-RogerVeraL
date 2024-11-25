@@ -26,3 +26,8 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    data = (lambda: __import__('homework.read_data', fromlist=['read_data']).read_data())()
+
+    meses = [row[2][5:7] for row in data]
+    return[ ( mes,meses.count(mes) ) for mes in sorted( set(meses) ) ]
+print(pregunta_04())

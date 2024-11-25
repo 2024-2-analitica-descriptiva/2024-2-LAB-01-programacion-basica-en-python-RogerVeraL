@@ -15,3 +15,14 @@ def pregunta_05():
     [('A', 9, 2), ('B', 9, 1), ('C', 9, 0), ('D', 8, 3), ('E', 9, 1)]
 
     """
+    data = (lambda: __import__('homework.read_data', fromlist=['read_data']).read_data())()
+
+    p5 = {}
+    for row in data:
+        key,value = row[0],int(row[1])
+        if key in p5:
+            p5[key].append(value)
+        else:
+            p5[key] = [value]
+    return sorted([(k, max(v), min(v)) for k, v in p5.items()])
+print(pregunta_05())

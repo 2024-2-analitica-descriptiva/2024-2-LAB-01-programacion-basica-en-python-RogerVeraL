@@ -20,3 +20,6 @@ def pregunta_10():
 
 
     """
+    data = (lambda: __import__('homework.read_data', fromlist=['read_data']).read_data())()
+    return [(row[0], len(row[3].split(",")), len(row[4].split(","))) for row in data]
+print(pregunta_10())

@@ -15,3 +15,10 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+    data = (lambda: __import__('homework.read_data', fromlist=['read_data']).read_data())()
+
+    p3 = {}
+    for row in data:
+        p3[ row[0] ] = p3.get( row[0],0) + int(row[1] )  
+    return sorted(list(p3.items()))
+print(pregunta_03())

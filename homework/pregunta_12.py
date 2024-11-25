@@ -15,3 +15,11 @@ def pregunta_12():
     {'A': 177, 'B': 187, 'C': 114, 'D': 136, 'E': 324}
 
     """
+    data = (lambda: __import__('homework.read_data', fromlist=['read_data']).read_data())()
+    p12 = {}
+    for row in data:
+        for word in row[4].split(","):
+            key, value = word.split(":")
+            p12[row[0]] = p12.get(row[0], 0) + int(value)
+    return dict(sorted(p12.items()))
+print(pregunta_12())

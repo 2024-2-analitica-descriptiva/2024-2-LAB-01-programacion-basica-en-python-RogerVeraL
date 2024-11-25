@@ -26,3 +26,17 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+    data = (lambda: __import__('homework.read_data', fromlist=['read_data']).read_data())()
+
+    p6 = {}
+    rows = [row[4].split(",") for row in data]
+    for row in rows:
+        for word in row:
+            key, value = word.split(":")
+            if key in p6:
+                p6[key].append(int(value))
+            else:
+                p6[key] = [int(value)]
+    return sorted([(k, min(v), max(v)) for k, v in p6.items()])
+
+print(pregunta_06())

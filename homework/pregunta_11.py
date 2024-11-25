@@ -13,6 +13,13 @@ def pregunta_11():
 
     Rta/
     {'a': 122, 'b': 49, 'c': 91, 'd': 73, 'e': 86, 'f': 134, 'g': 35}
-
+    
 
     """
+    data = (lambda: __import__('homework.read_data', fromlist=['read_data']).read_data())()
+    p11 = {}
+    for row in data:
+        for letra in row[3].split(","):
+            p11[letra] = p11.get(letra, 0) + int(row[1])
+    return dict(sorted(p11.items()))
+print(pregunta_11())

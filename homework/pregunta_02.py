@@ -15,3 +15,8 @@ def pregunta_02():
     [('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
 
     """
+    data = (lambda: __import__('homework.read_data', fromlist=['read_data']).read_data())()
+
+    letras = [row[0] for row in data]
+    return [ ( letra,letras.count(letra) ) for letra in sorted(set(letras))]
+print(pregunta_02())

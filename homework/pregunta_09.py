@@ -24,3 +24,14 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+    data = (lambda: __import__('homework.read_data', fromlist=['read_data']).read_data())()
+
+    p9 = {}
+    rows = [row[4].split(",") for row in data]
+    for row in rows:
+        for word in row:
+            key, value = word.split(":")
+            p9[key] = p9.get(key, 0) + 1
+    #p9 =  {k:v for k,v in sorted(p9.items())}
+    return dict(sorted(p9.items()))
+print(pregunta_09())

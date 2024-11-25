@@ -27,3 +27,13 @@ def pregunta_08():
      (9, ['A', 'B', 'C', 'E'])]
 
     """
+    data = (lambda: __import__('homework.read_data', fromlist=['read_data']).read_data())()
+    p8 = {}
+    for row in data:
+        key,value = int(row[1]),row[0]
+        if key in p8:
+            p8[key].append( value )
+        else:
+            p8[key] = [value]
+    return sorted([(k,sorted(set(v))) for k, v in p8.items()])
+print(pregunta_08())

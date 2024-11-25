@@ -14,3 +14,7 @@ def pregunta_01():
     214
 
     """
+    from homework.read_data import read_data
+    data = read_data() # data = (lambda: __import__('read_data').read_data())()
+    return sum([int(row[1]) for row in data]) 
+print(pregunta_01())
